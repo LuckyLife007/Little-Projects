@@ -42,3 +42,5 @@ class IntegerConverter
 $num = intval($_POST["integer"]);
 $converter = new IntegerConverter ();
 $roman = $converter->intToRoman($num);
+$data = print_r($roman);
+return $data;

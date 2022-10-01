@@ -11,10 +11,10 @@ class RomanConverter
         $result = 0;
         $noOfRomanLetters = strlen($rom);
         for ($i = 0; $i < $noOfRomanLetters; $i++) { 
-            $cl = $rom[$i];                     //current letter
-            $vcl = $map[$cl];                   //integer value of current letter
-            $nl = $rom[$i+1];                   //next letter
-            $vnl = $map[$nl];                   //integer value of next letter
+            $cl = $rom[$i];                             //current letter
+            $vcl = $map[$cl];                           //integer value of current letter
+            $nl = ($rom[$i+1]) ? $rom[$i+1] : null;     //next letter if there is
+            $vnl = ($nl) ? $map[$nl] : null;            //integer value of next letter if there is
             if ($vcl < $vnl) {
                 $val = $vnl - $vcl;
                 $i++;
@@ -31,3 +31,5 @@ class RomanConverter
 $rom = ($_POST["roman"]);
 $converter = new RomanConverter();
 $number = $converter->romanToInt("$rom");
+$data = print_r($number);
+return $data;
